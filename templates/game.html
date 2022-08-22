@@ -1,23 +1,16 @@
-<!DOCTYPE html/>
-<html>
-	<head>
-		<title>
-			Quotes of the Rings
-		</title>
-	</head>
-    <br>
-	<body>
-		<div>
-            <h3>
-                {{ quote }}
-            </h3>
-        </div>
-        <br>
-        <div>
-            <form id="guess" method="post">
-                <input type="text" form="guess" name="usr_answer" placeholder="Answer..." autofocus>
-                <input type="submit" value="->" 
-            </form>
-        </div>
-	</body>
-</html>
+{% extends "base.html" %}
+
+{% block body %}
+<div>
+    <blockquote>
+        "{{ quote }}"
+    </blockquote>
+</div>
+<br>
+<div>
+    <form id="guess" method="post">
+        <input type="text" form="guess" name="usr_answer" placeholder="Answer..." autofocus autocomplete="off">
+        <input type="submit" value=""> 
+    </form>
+</div>
+{% endblock %}

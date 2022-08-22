@@ -1,16 +1,8 @@
-<!DOCTYPE html/>
-<html>
-	<head>
-		<title>
-			Quotes of the Rings
-		</title>
-	</head>
-	<body>
-		<div>
-			<a id="play" href="/game">Play Game</a>
-		</div>
-        <div>
-            <a href="/about">About</a>
-        </div>
-	</body>
-</html>
+{% extends "base.html" %}
+
+{% block body %}
+<h1 id="title" class="main">Quotes of the Rings</h1>
+<br>
+<a href="/game" id="first" class="link">Start</a>
+<a href="/about" id="second" class="link">About</a>
+{% endblock %}

@@ -1,21 +1,16 @@
-<!DOCTYPE html/>
-<html>
-	<head>
-		<title>
-			Quotes of the Rings
-		</title>
-	</head>
-	<body>
-        <div>
-            <h2>Your Score: <i>{{ score }}</i></h2>
-            <h3>Correct Answer: <i>{{ answer }}</i></h3>
-        </div>
-        <br>
-		<div>
-			<a id="play" href="/game">Play Again</a>
-		</div>
-        <div>
-            <a href="/about">About</a>
-        </div>
-	</body>
-</html>
+{% extends "base.html" %}
+
+{% block body %}
+<div>
+	<h1 class="main" id="fail">Your Score:<br>{{ score }}</h1>
+	<br>
+	<h1 class="about" id="avg"><i>The average score is {{ avg }}</i></h1>
+	<h1 class="about" id="correctAnswer">Correct Answer: <i><u>{{ answer }}</i></u></h1>
+</div>
+<div>
+	<a id="fourth" class="link" href="/game" autofocus>Play Again</a>
+</div>
+<div>
+	<a id="fifth" class="link" href="/about">About</a>
+</div>
+{% endblock %}

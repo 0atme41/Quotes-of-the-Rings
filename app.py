@@ -10,7 +10,8 @@ db = SQL("sqlite:///quotes.db")
 vars = {
     "character": "", ## The global equivalent of the 'answer' variable
     "score": 0, ## Used to keep track of the user's score
-    "change": True ## A boolean to denote if the user's score should change to 0, or stay the same (throughout various requests)
+    "change": True, ## A boolean to denote if the user's score should change to 0, or stay the same (throughout various requests)
+    "avg": 0 ## Used to store a temporary average value based on numbers from quotes.db (per game)
 }
 
 def determine(usr_answer, answer):
@@ -70,6 +71,11 @@ def game():
             vars["change"] = False # A 'change' value of 'False' ensures the user's score will not get reset upon the ensuing GET request
             return redirect("/game")
         else:
+            # calculates the average score from previous games
+            vars["avg"] = round(db.execute("SELECT AVG(score) AS score FROM scores")[0]["score"], 1) 
+            
+             # inserts the score from the new game into the database
+            db.execute("INSERT INTO scores (score) VALUES (?)", vars["score"])
             return redirect("/fail")
 
 @app.route("/about")
@@ -86,4 +92,4 @@ def fail():
         return redirect("/")
 
     # The correct answer for the last question in addition to the user's score is passed to the front end
-    return render_template("fail.html", answer = vars["character"], score = vars["score"])
+    return render_template("fail.html", answer = vars["character"], score = vars["score"], avg = vars["avg"])

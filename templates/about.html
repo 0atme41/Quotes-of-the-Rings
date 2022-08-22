@@ -1,15 +1,15 @@
-<!DOCTYPE html/>
-<html>
-	<head>
-		<title>
-			Quotes of the Rings
-		</title>
-	</head>
-	<body>
-		<h3>About</h3>
-        <div><p>This web application utilizes Python (with the Flask framework) and SQL for server side operations and JavaScript, HTML, and CSS for client side.</p></div>
-        <div>
-            <a href="/">Home</a>
-        </div>
-	</body>
-</html>
+{% extends "base.html" %}
+
+{% block body %}
+    <div>
+		<p class="about" id="about">
+			This web application utilizes Python (with the Flask framework) and SQL for server side operations and JavaScript, HTML, and CSS for client side. The source code can be viewed on <a href="https://github.com/0atme41/Quotes-of-the-Rings">Github</a>.</a>
+			<br><br><br>
+			The data set used was provided by <a href="https://the-one-api.dev/">The One Api</a>.
+		</p>
+		<br>
+	</div>
+    <div>
+        <a href="/" id="third" class="link">Home</a>
+    </div>
+{% endblock %}
