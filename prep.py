@@ -11,7 +11,8 @@ MOVIES = ["The Fellowship of the Ring", "The Two Towers ", "The Return of the Ki
 
 header = {'Authorization' : f'Bearer {ACCESS_TOKEN}'}
 
-# The One Api has a limit of 100 calls per 10 minutes (I sleep the function for 12 minutes to be safe)
+# The One Api has a limit of 100 calls per 10 minutes
+# If the request causes an error, the function sleeps for 12 minutes (to be safe)
 def make_request(route):
     while True:
         try:
@@ -39,5 +40,3 @@ for movie_entry in movie_response["docs"]:
             # Adds the quote and corresponding character name to a row in a SQL database
             if character_response["docs"][0]["name"] != "MINOR_CHARACTER":
                 db.execute("INSERT INTO quotes (quote, character) VALUES (?, ?)", quote_entry["dialog"], character_response["docs"][0]["name"])
-
-print(db.execute("SELECT * FROM quotes"))

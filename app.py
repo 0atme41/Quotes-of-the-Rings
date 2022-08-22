@@ -52,7 +52,6 @@ def game():
         # Local variables are set
         answer = rows[0]["character"]
         quote = rows[0]["quote"]
-
         # The global variable encased in the 'vars' dictionary is set
         vars["character"] = answer
 
