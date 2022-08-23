@@ -4,7 +4,8 @@ import unidecode
 
 app = Flask(__name__)
 
-db = SQL("sqlite:///quotes.db")
+#db = SQL("sqlite:///quotes.db")
+db = SQL("postgres://jnyqnfbnepeswa:9dcbc80a1ce1cb1954858e7c74c02a74b9b43fb270cea6bc006bdc455d4774d4@ec2-54-86-224-85.compute-1.amazonaws.com:5432/dc0kbfv36u803")
 
 # There are three main values that are used in logic statements and decide the user progression (stored in a dictionary)
 vars = {
