@@ -13,7 +13,6 @@ cs50==9.2.2
 dbus-python==1.2.16
 distlib==0.3.5
 distro==1.4.0
-distro-info===0.23ubuntu1
 entrypoints==0.3
 filelock==3.8.0
 Flask==2.1.3
